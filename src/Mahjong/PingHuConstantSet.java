@@ -582,6 +582,88 @@ public class PingHuConstantSet {
         }
     }
 
+    /**
+     * 手里的牌用一个long来表示
+     * @param tiles
+     * @param tileKind
+     * @return
+     */
+    public static Long getByteForLong(int[] tiles, int tileKind) {
+        long b = 0;
+        if (tileKind == 0) {
+            for (int i = 0; i < 9; i++) {
+                if (tiles[i] > 0) {
+                    if (i != 8) {
+                        if (tiles[i + 1] > 0) {
+                            b = (b << 4) + getByte(tiles[i]);
+                        } else {
+                            b = (b << 4) + getByte(tiles[i] * 10);
+                        }
+                    } else {
+                        b = (b << 4) + getByte(tiles[i] * 10);
+                    }
+                }
+            }
+        } else if (tileKind == 1) {
+            for (int i = 9; i < 18; i++) {
+                if (tiles[i] > 0) {
+                    if (i != 17) {
+                        if (tiles[i + 1] > 0) {
+                            b = (b << 4) + getByte(tiles[i]);
+                        } else {
+                            b = (b << 4) + getByte(tiles[i] * 10);
+                        }
+                    } else {
+                        b = (b << 4) + getByte(tiles[i] * 10);
+                    }
+                }
+            }
+        } else if (tileKind == 2) {
+            for (int i = 18; i < 27; i++) {
+                if (tiles[i] > 0) {
+                    if (i != 26) {
+                        if (tiles[i + 1] > 0) {
+                            b = (b << 4) + getByte(tiles[i]);
+                        } else {
+                            b = (b << 4) + getByte(tiles[i] * 10);
+                        }
+                    } else {
+                        b = (b << 4) + getByte(tiles[i] * 10);
+                    }
+                }
+            }
+        } else if (tileKind == 3) {
+            for (int i = 27; i < 31; i++) {
+                if (tiles[i] > 0) {
+                    if (i != 30) {
+                        if (tiles[i + 1] > 0) {
+                            b = (b << 4) + getByte(tiles[i]);
+                        } else {
+                            b = (b << 4) + getByte(tiles[i] * 10);
+                        }
+                    } else {
+                        b = (b << 4) + getByte(tiles[i] * 10);
+                    }
+                }
+            }
+        } else if (tileKind == 4) {
+            for (int i = 31; i < 34; i++) {
+                if (tiles[i] > 0) {
+                    if (i != 33) {
+                        if (tiles[i + 1] > 0) {
+                            b = (b << 4) + getByte(tiles[i]);
+                        } else {
+                            b = (b << 4) + getByte(tiles[i] * 10);
+                        }
+                    } else {
+                        b = (b << 4) + getByte(tiles[i] * 10);
+                    }
+                }
+            }
+        }
+        return b;
+    }
+
     private static byte getByte(int i) {
         switch (i) {
             case 1:
